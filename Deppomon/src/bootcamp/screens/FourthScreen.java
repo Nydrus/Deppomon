@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import static bootcamp.Canvas.PADDING;
 import static bootcamp.Game.chosenPlayer;
 
-public class FourthScreen extends Screen {
+public class FourthScreen implements Screen {
 
     private Picture johnnyAmber;
     private Picture jackAmber;
@@ -15,23 +15,10 @@ public class FourthScreen extends Screen {
 
     @Override
     public void init() {
+        createPics();
 
-        switch (chosenPlayer) {
-            case "JackSparrow":
-                jackAmber = new Picture(PADDING, PADDING, "4thScreenJackVSAmber.png");
-                jackAmber.draw();
-                break;
-
-            case "EdwardScissors":
-                edwardAmber = new Picture(PADDING, PADDING, "4thScreenEdwardVSAmber.png");
-                edwardAmber.draw();
-                break;
-
-            case "JohnnyDepp":
-                johnnyAmber = new Picture(PADDING, PADDING, "4thScreenJohnnyVSAmber.png");
-                johnnyAmber.draw();
-        }
     }
+
 
     @Override
     public void delete() {
@@ -48,6 +35,25 @@ public class FourthScreen extends Screen {
             case "JohnnyDepp":
                 johnnyAmber.delete();
 
+        }
+    }
+
+    @Override
+    public void createPics() {
+        switch (chosenPlayer) {
+            case "JackSparrow":
+                jackAmber = new Picture(PADDING, PADDING, "4thScreenJackVSAmber.png");
+                jackAmber.draw();
+                break;
+
+            case "EdwardScissors":
+                edwardAmber = new Picture(PADDING, PADDING, "4thScreenEdwardVSAmber.png");
+                edwardAmber.draw();
+                break;
+
+            case "JohnnyDepp":
+                johnnyAmber = new Picture(PADDING, PADDING, "4thScreenJohnnyVSAmber.png");
+                johnnyAmber.draw();
         }
     }
 }

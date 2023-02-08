@@ -1,9 +1,10 @@
 package bootcamp.screens;
 
-public abstract class Screen {
+public interface Screen {
 
-    public abstract void init() throws InterruptedException;
+    void init() throws InterruptedException;
+    void delete();
+    void createPics();
 
-    public abstract void delete();
 
 }

@@ -6,49 +6,36 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 public class Controls implements KeyboardHandler {
-
     private Keyboard keyboard;
-
     private Game game;
-
 
     public Controls(Game game) {
         this.game = game;
         keyboard = new Keyboard(this);
         init();
     }
-
     private void init() {
-
         KeyboardEvent spaceBar = new KeyboardEvent();
         KeyboardEvent upKey = new KeyboardEvent();
         KeyboardEvent downKey = new KeyboardEvent();
         KeyboardEvent leftKey = new KeyboardEvent();
         KeyboardEvent rightKey = new KeyboardEvent();
-
         spaceBar.setKey(KeyboardEvent.KEY_SPACE);
         spaceBar.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-
         upKey.setKey(KeyboardEvent.KEY_UP);
         upKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-
         downKey.setKey(KeyboardEvent.KEY_DOWN);
         downKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-
         leftKey.setKey(KeyboardEvent.KEY_LEFT);
         leftKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-
         rightKey.setKey(KeyboardEvent.KEY_RIGHT);
         rightKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-
         keyboard.addEventListener(spaceBar);
         keyboard.addEventListener(upKey);
         keyboard.addEventListener(downKey);
         keyboard.addEventListener(leftKey);
         keyboard.addEventListener(rightKey);
-
     }
-
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         try {
@@ -57,15 +44,11 @@ public class Controls implements KeyboardHandler {
             throw new RuntimeException(e);
         }
     }
-
-
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
     }
-
     public int actionWhenPressed(KeyboardEvent keyboardEvent) throws InterruptedException {
         if (game.getScreenCounter() == 1) {
-
             switch (keyboardEvent.getKey()) {
                 case KeyboardEvent.KEY_SPACE:
                     game.clickSound();
@@ -74,7 +57,6 @@ public class Controls implements KeyboardHandler {
                     game.incrementScreenCounter();
                     return 1;
             }
-
         }
         if (game.getScreenCounter() == 2) {
             switch (keyboardEvent.getKey()) {
