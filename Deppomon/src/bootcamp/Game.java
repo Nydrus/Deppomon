@@ -145,78 +145,60 @@ public class Game {
     public void deleteWinningScreen() {
         winningScreen.delete();
     }
-
     public int getScreenCounter() {
         return screenCounter;
     }
-
     public boolean getCanMoveToFourthScreen() {
         return thirdScreen.getCanMoveToNextScreen();
     }
-
     public boolean getUserStartedCarouselThirdScreen() {
         return thirdScreen.getUserStartedCarousel();
     }
-
     public void setUserStartedCarouselThirdScreen(boolean trueOrFalse) {
         thirdScreen.setUserStartedCarousel(trueOrFalse);
     }
-
     public void setCanMoveToNextScreenThirdScreen(boolean trueOrFalse) {
         thirdScreen.setCanMoveToNextScreen(trueOrFalse);
     }
-
     public void choosePlayerThirdScreen() {
         thirdScreen.playJohnnyCarousel();
     }
-
     public void stopBackgroundMusic() {
         backgroundMusic.stop();
     }
-
     public void startBackgroundMusic() {
         backgroundMusic.play();
         backgroundMusic.loop();
     }
-
     public void clickSound() {
         clickSound = new Sound(1);
         clickSound.play();
     }
-
     public void losingSound() {
         losingSound = new Sound(4);
         losingSound.play();
     }
-
     public void winningSound() {
         winningSound = new Sound(2);
         winningSound.play();
     }
-
     public void incrementScreenCounter() {
         screenCounter++;
     }
-
     public int getPlayerMovementCount() {
         return this.playerMovementCount;
     }
-
     public int getAmberMovementCount() {
         return this.amberMovementCount;
     }
-
     public int incrementPlayerMovementCount() {
         return playerMovementCount++;
     }
-
     public int incrementAmberMovementCount() {
         return amberMovementCount++;
     }
-
     public int playerHitVillain() throws InterruptedException {
         switch (fifthScreen.getChosenAbility()) {
-
             case 1:
                 int dmg = player.getRumAbilityDamage();
                 playerAttackSequence(dmg);
@@ -225,12 +207,10 @@ public class Game {
                 dmg = player.getPlayGuitarAbilityDamage();
                 playerAttackSequence(dmg);
                 return 2;
-
             case 3:
                 dmg = player.getCocaineAbilityDamage();
                 playerAttackSequence(dmg);
                 return 3;
-
             case 4:
                 if (!playerUsedSpecialAbility) {
                     if (getPlayerMovementCount() >= getAmberMovementCount()) {
@@ -245,7 +225,6 @@ public class Game {
         }
         return 0;
     }
-
     private boolean checkIfPlayerCanAttack() {
        while(playerMovementCount != amberMovementCount){
            fifthScreen.printAttackSign();
@@ -254,29 +233,23 @@ public class Game {
         fifthScreen.deleteAttackSign();
         return false;
     }
-
     private int playerAttackSequence(int dmg) throws InterruptedException {
         if (getPlayerMovementCount() >= getAmberMovementCount()) {
             return 0;
         }
-
         fifthScreen.startPlayerAttackAnimation();
         incrementPlayerMovementCount();
         amberHeard.setHealth(amberHeard.getHealth() - dmg);
         changeVillainHealthBar();
-
         if (amberHeard.getHealth() <= 0) {
             amberHeard.setIsAlive(false);
             endingSequence(true);
         }
         return dmg;
     }
-
     public void startVillainAttacks() {
         timerAmberAttack.start();
     }
-
-
     public int villainAttacks() throws InterruptedException {
         if (!amberHeard.getIsAlive()) {
             timerAmberAttack.stop();

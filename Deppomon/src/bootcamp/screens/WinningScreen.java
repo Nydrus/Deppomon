@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import static bootcamp.Canvas.PADDING;
 
 
-public class WinningScreen extends Screen {
+public class WinningScreen implements Screen {
 
     Timer countdownTimer = new Timer(500, new ActionListener() {
         @Override
@@ -26,9 +26,7 @@ public class WinningScreen extends Screen {
 
     @Override
     public void init() {
-
-        backGround = new Picture(PADDING, PADDING, "kingWon.png");
-
+        createPics();
         backGround.draw();
         countdownTimer.start();
     }
@@ -36,6 +34,11 @@ public class WinningScreen extends Screen {
     @Override
     public void delete() {
         backGround.delete();
+    }
+
+    @Override
+    public void createPics() {
+        backGround = new Picture(PADDING, PADDING, "kingWon.png");
     }
 
 

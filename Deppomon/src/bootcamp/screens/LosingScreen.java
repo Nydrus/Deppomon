@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LosingScreen extends Screen{
+public class LosingScreen implements Screen {
 
     private Picture backGround;
     private Picture tryAgain;
@@ -33,14 +33,8 @@ public class LosingScreen extends Screen{
 
     @Override
     public void init() {
-
-        backGround = new Picture(PADDING,PADDING,"youLost.png");
-        controls2 = new Picture(465, 560, "spacebar.png");
-        controls2.grow(-50,-50);
-        tryAgain = new Picture(385, 550, "tryAgain.png");
-
+        createPics();
         backGround.draw();
-
         playAgainTimer.start();
         countdownTimer.start();
     }
@@ -53,8 +47,16 @@ public class LosingScreen extends Screen{
         playAgainTimer.stop();
     }
 
-    private boolean countdownAction(){
-        while(countdown != 0) {
+    @Override
+    public void createPics() {
+        backGround = new Picture(PADDING, PADDING, "youLost.png");
+        controls2 = new Picture(465, 560, "spacebar.png");
+        controls2.grow(-50, -50);
+        tryAgain = new Picture(385, 550, "tryAgain.png");
+    }
+
+    private boolean countdownAction() {
+        while (countdown != 0) {
             countdown--;
             return false;
         }
@@ -63,7 +65,7 @@ public class LosingScreen extends Screen{
         return canMoveToNextScreen = true;
     }
 
-    public boolean getCanMoveToNextScreen(){
+    public boolean getCanMoveToNextScreen() {
         return canMoveToNextScreen;
     }
 
@@ -77,5 +79,4 @@ public class LosingScreen extends Screen{
         controls2.delete();
         return showPlayAgain = true;
     }
-
 }

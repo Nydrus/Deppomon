@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import static bootcamp.Canvas.PADDING;
 import static bootcamp.Game.chosenPlayer;
 
-public class FifthScreen extends Screen {
+public class FifthScreen implements Screen {
 
     private Picture backgroundImage;
     private Picture playerImage;
@@ -85,20 +85,16 @@ public class FifthScreen extends Screen {
         playerThirdAbility.draw();
         playerSpecialAbility.draw();
     }
-
-    public void createPictures() {
+@Override
+    public void createPics() {
         villainImage = new Picture(720, 0, "4thScreenAmberHeardNoBackground.png");
         villainImage.grow(-20, -20);
-
         playerHealthBar = new Rectangle(PADDING + 71, PADDING + 222, 400, 30);
         playerHealthBar.setColor(Color.RED);
-
         villainHealthBar = new Rectangle(PADDING + 72, PADDING + 83, 400, 30);
         villainHealthBar.setColor(Color.RED);
         villainHealthBarTemplate = new Picture(PADDING + 60, PADDING + 50, "5thScreenHealthBarAmber.png");
-
         abilitiesBackground = new Picture(PADDING + 540, PADDING + 550,"5thScreenAbilityBackground.jpg");
-
         playerFirstAbility = new Picture(PADDING + 560, PADDING + 575, "5thScreenbutton1stAbility.png");
         playerSecondAbility = new Picture(PADDING + 878, PADDING + 575, "5thScreenbutton2ndAbility.png");
         playerThirdAbility = new Picture(PADDING + 560, PADDING + 720, "5thScreenbutton3rdAbility.png");
@@ -108,10 +104,9 @@ public class FifthScreen extends Screen {
 
     @Override
     public void init() {
-        createPictures();
+        createPics();
         setPlayerPicture();
         drawAndFillPictures();
-
         hoveredAbilityTimer.start();
     }
 

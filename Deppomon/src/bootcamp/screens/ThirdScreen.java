@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import static bootcamp.Canvas.PADDING;
 import static bootcamp.Game.chosenPlayer;
 
-public class  ThirdScreen extends Screen {
+public class ThirdScreen implements Screen {
 
     private Rectangle backgroundImage;
     private Picture playerPicture;
@@ -38,17 +38,7 @@ public class  ThirdScreen extends Screen {
 
     @Override
     public void init() {
-
-        backgroundImage = new Rectangle(PADDING, PADDING, 1259, 895);
-        backgroundImage.setColor(Color.BLACK);
-        backgroundImage.fill();
-
-        playerPicture = new Picture(450, 100, "3rdScreenTemplate4BLACK.png");
-
-        questionMark = new Picture(600, 300, "3rdScreenQuestionMarkNoBackground.png");
-        questionMark.grow(130, 150);
-        mainMessage = new Picture(300, 600, "3rdScreenMainMessage.png");
-
+        createPics();
         playerPicture.draw();
         questionMark.draw();
         mainMessage.draw();
@@ -60,13 +50,24 @@ public class  ThirdScreen extends Screen {
         chosenJohnnyPicture.delete();
     }
 
+    @Override
+    public void createPics() {
+        backgroundImage = new Rectangle(PADDING, PADDING, 1259, 895);
+        backgroundImage.setColor(Color.BLACK);
+        backgroundImage.fill();
+        playerPicture = new Picture(450, 100, "3rdScreenTemplate4BLACK.png");
+        questionMark = new Picture(600, 300, "3rdScreenQuestionMarkNoBackground.png");
+        questionMark.grow(130, 150);
+        mainMessage = new Picture(300, 600, "3rdScreenMainMessage.png");
+    }
+
     public void playJohnnyCarousel() {
 
         userStartedCarousel = true;
         carouselTimer.start();
     }
 
-    private void playCarousel(){
+    private void playCarousel() {
         if (playerPicture != null) {
             playerPicture.delete();
             playerPicture = null;
@@ -118,10 +119,11 @@ public class  ThirdScreen extends Screen {
         return userStartedCarousel;
     }
 
-    public void setUserStartedCarousel(boolean trueOrFalse){
+    public void setUserStartedCarousel(boolean trueOrFalse) {
         userStartedCarousel = trueOrFalse;
     }
-    public void setCanMoveToNextScreen(boolean trueOrFalse){
+
+    public void setCanMoveToNextScreen(boolean trueOrFalse) {
         canMoveToNextScreen = trueOrFalse;
     }
 }
