@@ -111,9 +111,9 @@ public abstract class Player {
     public int getCocaineAbilityDamage(){
         return Cocaine();
     }
-    public int damageFromCocaine(int dmg){
+    public void damageFromCocaine(int dmg){
         setHealth(health - dmg);
-        return health;
+
     }
 
     public int getSpecialAbilityDamage(){
