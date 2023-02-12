@@ -210,6 +210,7 @@ public class Game {
             case 3:
                 dmg = player.getCocaineAbilityDamage();
                 playerAttackSequence(dmg);
+                changePlayerHealthBar();
                 return 3;
             case 4:
                 if (!playerUsedSpecialAbility) {

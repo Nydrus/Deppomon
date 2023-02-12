@@ -4,7 +4,7 @@ package bootcamp.player;
 
 public abstract class Player {
 
-    private int maxHealth = 2000;
+    private final int maxHealth = 2000;
     private int health = 2000;
     private int coolDown = 10;
 
@@ -53,16 +53,19 @@ public abstract class Player {
 
     public int Cocaine() {
         int randomizer = (int) Math.ceil(Math.random() * 100);
-        textBody = "Give in a line Of Cocaine!";
+        textBody = "Sniff a line of Cocaine!";
 
         if (randomizer < 25) {
-            return 15;
+            damageFromCocaine(5);
+            return 20;
         }
         if (randomizer < 50) {
-            return 50;
+            damageFromCocaine(10);
+            return 55;
         }
         if (randomizer < 75) {
-            return 100;
+            damageFromCocaine(15);
+            return 105;
         }
         return 150; //damage given
     }
@@ -107,6 +110,10 @@ public abstract class Player {
 
     public int getCocaineAbilityDamage(){
         return Cocaine();
+    }
+    public int damageFromCocaine(int dmg){
+        setHealth(health - dmg);
+        return health;
     }
 
     public int getSpecialAbilityDamage(){
