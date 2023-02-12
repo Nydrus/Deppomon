@@ -25,4 +25,14 @@ public class JackSparrow extends Player{
     public boolean getUsedSpecialAbility(){
         return usedSpecialAbility;
     }
+
+    @Override
+    public void startCocaineBuff() {
+
+    }
+
+    @Override
+    public void endCocaineBuff() {
+
+    }
 }

@@ -1,6 +1,8 @@
 package bootcamp.player;
 
 
+import bootcamp.buffs.CocaineBuff;
+
 public class EdwardScissors extends Player{
     private boolean usedSpecialAbility = false;
     @Override
@@ -16,5 +18,15 @@ public class EdwardScissors extends Player{
     }
     public boolean getUsedSpecialAbility(){
         return usedSpecialAbility;
+    }
+
+    @Override
+    public void startCocaineBuff() {
+
+    }
+
+    @Override
+    public void endCocaineBuff() {
+
     }
 }

@@ -24,4 +24,13 @@ private boolean alive;
         return usedSpecialAbility;
     }
 
+    @Override
+    public void startCocaineBuff() {
+
+    }
+
+    @Override
+    public void endCocaineBuff() {
+
+    }
 }

@@ -1,6 +1,6 @@
 package bootcamp.buffs;
 
-public interface CocaineBuff {
-    void start();
-    void end();
+public abstract class CocaineBuff {
+    public abstract void startCocaineBuff();
+    public abstract void endCocaineBuff();
 }

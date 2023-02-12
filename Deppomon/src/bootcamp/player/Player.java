@@ -1,8 +1,9 @@
 package bootcamp.player;
 
 
+import bootcamp.buffs.CocaineBuff;
 
-public abstract class Player {
+public abstract class Player extends CocaineBuff {
 
     private final int maxHealth = 2000;
     private int health = 2000;
