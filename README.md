@@ -16,7 +16,7 @@ Battle Screen:
 
 ![battle screen](https://github.com/user-attachments/assets/5f068890-00c9-404f-8d95-9ac479d5a2a6)
 
-Loosing Screen:
+Losing Screen:
 
 ![Loosing screen](https://github.com/user-attachments/assets/2a7a01cd-6fae-4303-ae1e-70fe4dfcdce0)
 
